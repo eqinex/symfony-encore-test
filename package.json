@@ -10,15 +10,19 @@
     "@mui/material": "^5.15.7",
     "@types/react": "^18.2.51",
     "@types/react-dom": "^18.2.18",
+    "core-js": "^3.35.1",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.0"
   },
   "devDependencies": {
     "@babel/core": "^7.23.9",
     "@babel/preset-env": "^7.23.9",
     "@babel/preset-react": "^7.23.3",
     "@symfony/webpack-encore": "^4.6.1",
+    "sass": "^1.70.0",
+    "sass-loader": "^14.1.0",
     "ts-loader": "^9.5.1",
     "typescript": "^5.3.3",
     "webpack": "^5.90.0",

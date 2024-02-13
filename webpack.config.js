@@ -1,4 +1,5 @@
 const Encore = require('@symfony/webpack-encore');
+const path = require('path');
 
 // Информация по конфигурации взята с https://symfony.com/doc/current/frontend/encore/index.html#optimizing
 // Вручную сконфигурируйте операционное окружение, если оно еще не сконфигурировано командой "encore".
@@ -49,18 +50,21 @@ Encore
     .configureBabel((config) => {
         config.plugins.push('@babel/plugin-transform-class-properties');
     })
-
     // включает полизаполнение @babel/preset-env
     .configureBabelPresetEnv((config) => {
         config.useBuiltIns = 'usage';
         config.corejs = 3;
     })
 
+    .addAliases({
+        '@': path.resolve(__dirname, 'src'),
+    })
+
     // раскомментируйте, если используете React
     .enableReactPreset()
 
     // включает поддержку Sass/SCSS
-    //.enableSassLoader()
+    .enableSassLoader()
 
     // раскомментируйте, если вы используете TypeScript
     .enableTypeScriptLoader()
