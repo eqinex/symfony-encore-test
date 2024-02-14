@@ -20,6 +20,8 @@ if (!root) {
     throw new Error('root not found');
 }
 
+const rootContainer = createRoot(root);
+
 const router = createBrowserRouter([
     {
         path: "/v3",
@@ -37,5 +39,6 @@ const router = createBrowserRouter([
     },
 ]);
 
-const rootContainer = createRoot(root);
-rootContainer.render(<RouterProvider router={router} />);
+rootContainer.render(
+    <RouterProvider router={router} />
+);

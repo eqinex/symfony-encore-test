@@ -66,6 +66,12 @@ Encore
     // включает поддержку Sass/SCSS
     .enableSassLoader()
 
+    .configureCssLoader(options => {
+        options.modules = {
+            localIdentName: Encore.isDev() ? '[path][name]__[local]' : '[hash:base64:8]'
+        };
+    })
+
     // раскомментируйте, если вы используете TypeScript
     .enableTypeScriptLoader()
 

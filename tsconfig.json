@@ -14,6 +14,12 @@
       "@/*": ["./src/*"]
     }
   },
+  "include": [
+    "declarations.d.ts",
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "./src/**/*.module.scss"
+  ],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
