@@ -1,18 +1,10 @@
-import { createRoot } from 'react-dom/client';
-import { App } from './App';
-import {
-    createBrowserRouter,
-    Navigate,
-    RouterProvider,
-} from "react-router-dom";
+import { createRoot } from "react-dom/client";
+import { RouterProvider } from "react-router-dom";
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import { createAppRouter } from "@/routing/router";
 
-import '@/assets/styles/app.scss';
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
-import { Production } from "@/pages/production";
-import { Suspense } from "react";
+import "@/assets/styles/index.scss";
+import theme from "@/assets/styles/themes/theme";
 
 const root = document.getElementById('root');
 
@@ -22,23 +14,14 @@ if (!root) {
 
 const rootContainer = createRoot(root);
 
-const router = createBrowserRouter([
-    {
-        path: "/v3",
-        element: <App />,
-        children: [
-            {
-                index: true,
-                element: <Navigate to="production" />,
-            },
-            {
-                path: "production",
-                element: <Suspense fallback={'Loading...'}><Production /></Suspense>,
-            },
-        ],
-    },
-]);
+const router = createAppRouter();
 
+/**
+ * Рендер корневого контейнера приложения.
+ */
 rootContainer.render(
-    <RouterProvider router={router} />
+    <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <RouterProvider router={router} />
+    </ThemeProvider>
 );

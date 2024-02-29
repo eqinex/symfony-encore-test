@@ -1,5 +1,7 @@
 const Encore = require('@symfony/webpack-encore');
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // Информация по конфигурации взята с https://symfony.com/doc/current/frontend/encore/index.html#optimizing
 // Вручную сконфигурируйте операционное окружение, если оно еще не сконфигурировано командой "encore".
@@ -10,11 +12,26 @@ if (!Encore.isRuntimeEnvironmentConfigured()) {
 
 Encore
     // каталог, где будут храниться скомпилированные ресурсы
-    .setOutputPath('public/build/')
+    .setOutputPath('build/build/')
     // публичный путь, используемый веб-сервером для доступа к пути вывода
     .setPublicPath('/build')
     // необходимо только для развертывания CDN или суб-каталога
     //.setManifestKeyPrefix('build/')
+
+    .addPlugin(new HtmlWebpackPlugin({
+        template: path.resolve('./public', 'index.html'),
+        filename: '../index.html',
+    }))
+
+    .addPlugin(new CopyWebpackPlugin({
+        patterns: [
+            { from: path.resolve('./public', 'favicon.ico'), to: '../' },
+        ]
+    }))
+
+    .addAliases({
+        '@': path.resolve(__dirname, 'src'),
+    })
 
     /*
      * ENTRY CONFIG
@@ -41,6 +58,7 @@ Encore
      * функций, см.:
      * https://symfony.com/doc/current/frontend.html#adding-more-features
      */
+    // Для build:prod нужно сначала запустить сервер, затем собрать prod версию, чтобы build не очистился.
     .cleanupOutputBeforeBuild()
     .enableBuildNotifications()
     .enableSourceMaps(!Encore.isProduction())
@@ -54,10 +72,6 @@ Encore
     .configureBabelPresetEnv((config) => {
         config.useBuiltIns = 'usage';
         config.corejs = 3;
-    })
-
-    .addAliases({
-        '@': path.resolve(__dirname, 'src'),
     })
 
     // раскомментируйте, если используете React

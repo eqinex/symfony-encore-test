@@ -1,0 +1,40 @@
+.footer {
+    height: 320px;
+    border-top: 1px solid var(--background-surface-separator);
+    padding: 0 20px;
+}
+
+.logoIcon {
+    height: 68px;
+    width: 50px;
+    position: relative;
+    object-fit: cover;
+}
+
+.info {
+    margin-left: 12px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.menu {
+    flex: 1;
+    flex-direction: column;
+    gap: 156px;
+    display: flex;
+    padding: 60px 0;
+}
+
+.row {
+    justify-content: space-between;
+    width: 100%;
+}
+
+.pageUpper {
+    width: 44px;
+    height: 44px;
+}
+
+.typography {
+   font-family: var(--desktop-caption-1);
+}

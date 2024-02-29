@@ -1,0 +1,35 @@
+@import "../fonts";
+
+:root {
+    /* fonts */
+    --desktop-caption-1: "PF Din Text Comp Pro";
+    --desktop-caption-2: "PF Din Text Cond Pro";
+    --font-europecondensedc: "EuropeCondensedC";
+
+    /* Colors */
+    --text-primary: #fafafa;
+    --text-tertiary: #706e6e;
+    --text-secondary: #a3a1a1;
+    --button-primary-background-default: #292929;
+    --button-secondary-background-default: #ff5106;
+    --background-primary: #1e1e1e;
+    --background-surface-separator: #404040;
+    --background-surface-accent: #ec6608;
+
+    /* font sizes */
+    --font-size-h1: 80px;
+    --font-size-h2: 40px;
+    --font-size-h3: 20px;
+    --font-size-h4: 18px;
+    --font-size-h5: 16px;
+    --font-size-subtitle1: 16px;
+    --font-size-subtitle2: 14px;
+    --font-size-body1: 18px;
+    --font-size-body2: 16px;
+    --font-size-caption: 13px;
+
+    --line-height-80: 80px;
+    --line-height-24: 24px;
+    --line-height-20: 20px;
+    --line-height-16: 16px;
+}
