@@ -7,7 +7,7 @@ import {
     Tab,
     Tabs,
     Toolbar,
-    Typography
+    Typography,
 } from "@mui/material";
 import styles from "./Header.module.scss";
 import logo from "@/assets/images/logo.png";
@@ -16,13 +16,6 @@ import UserIcon from "@/assets/images/user-icon.svg";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-function a11yProps(index: number) {
-    return {
-        id: `simple-tab-${index}`,
-        'aria-controls': `simple-tabpanel-${index}`,
-    };
-}
-
 const tabData = [
     { label: 'Магазин' },
     { label: 'Информационный центр' },
@@ -30,10 +23,10 @@ const tabData = [
 ];
 
 const linkData = [
-    { label: 'Каталог', path: '/v3' },
-    { label: 'Заказать арматуру', path: '/v3/armature' },
-    { label: 'Заказ под производство', path: '/v3' },
-    { label: 'Калькуляторы', path: '/v3' },
+    { label: 'Каталог', path: '' },
+    { label: 'Заказать арматуру', path: 'armature' },
+    { label: 'Заказ под производство', path: '' },
+    { label: 'Калькуляторы', path: '' },
 ];
 
 /**
@@ -56,7 +49,9 @@ export const Header = () => {
         <AppBar position="static" className={styles.appBar}>
             <Container maxWidth={false} disableGutters>
                 <Toolbar disableGutters>
-                    <img className={styles.logoIcon} loading="eager" alt="logo" src={logo} />
+                    <Link to="" style={{ cursor: 'pointer' }}>
+                        <img className={styles.logoIcon} loading="eager" alt="logo" src={logo} />
+                    </Link>
                     <Box className={styles.menu}>
                         <Stack direction="row" className={styles.row}>
                             <Tabs
@@ -70,28 +65,40 @@ export const Header = () => {
                                         <Tab
                                             key={index}
                                             label={<Typography variant="subtitle2">{tab.label}</Typography>}
-                                            {...a11yProps(index)}
+                                            value={index}
                                         />
                                     ))
                                 }
                             </Tabs>
-                            <Stack direction="row" spacing={3} padding="12px">
-                                    <Typography
-                                        component="div"
-                                        color="primary.main"
-                                        variant="subtitle2"
-                                        textTransform="uppercase"
+                            <Stack direction="row" spacing={3}>
+                                <Link to={'tel:+78002345005'}>
+                                    <Button
+                                        variant="text"
+                                        sx={{ padding: '6px 12px' }}
                                     >
-                                        +7 800 234-5005
-                                    </Typography>
-                                    <Typography
-                                        component="div"
-                                        color="primary.main"
-                                        variant="subtitle2"
-                                        textTransform="uppercase"
+                                        <Typography
+                                            variant="subtitle2"
+                                            textTransform="uppercase"
+                                            className={styles.typography}
+                                        >
+                                            +7 800 234-5005
+                                        </Typography>
+                                    </Button>
+                                </Link>
+                                <Link to={'mailto:sales@tmk-group.com'}>
+                                    <Button
+                                        variant="text"
+                                        sx={{ padding: '6px 12px' }}
                                     >
-                                        sales@tmk-group.com
-                                    </Typography>
+                                        <Typography
+                                            variant="subtitle2"
+                                            textTransform="uppercase"
+                                            className={styles.typography}
+                                        >
+                                            sales@tmk-group.com
+                                        </Typography>
+                                    </Button>
+                                </Link>
                             </Stack>
                         </Stack>
                         <Stack direction="row" className={styles.row}>

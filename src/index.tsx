@@ -1,27 +1,32 @@
 import { createRoot } from "react-dom/client";
-import { RouterProvider } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import { createAppRouter } from "@/routing/router";
-
-import "@/assets/styles/index.scss";
-import theme from "@/assets/styles/themes/theme";
+import "@/app/styles/index.scss";
+import theme from "@/app/styles/themes/theme";
+import { Provider } from "react-redux";
+import AppRouter from "@/app/providers/router/AppRouter";
+import { store } from "@/app/providers/StoreProvider";
 
 const root = document.getElementById('root');
 
 if (!root) {
-    throw new Error('root not found');
+    throw new Error(
+        'Контейнер root не найден. НЕ удалось вмонтировать React приложение.'
+    );
 }
 
 const rootContainer = createRoot(root);
-
-const router = createAppRouter();
 
 /**
  * Рендер корневого контейнера приложения.
  */
 rootContainer.render(
-    <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <RouterProvider router={router} />
-    </ThemeProvider>
+    <BrowserRouter basename="/">
+        <Provider store={store} >
+            <ThemeProvider theme={theme}>
+                <CssBaseline />
+                <AppRouter />
+            </ThemeProvider>
+        </Provider>
+    </BrowserRouter>
 );

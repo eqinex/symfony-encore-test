@@ -1,6 +1,6 @@
 import React from "react";
-import { Header } from "@/layouts/Header/Header";
-import { Footer } from "@/layouts/Footer/Footer";
+import { Header } from "@/widgets/Header";
+import { Footer } from "@/widgets/Footer";
 import { Outlet } from "react-router";
 
 /**

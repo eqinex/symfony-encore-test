@@ -5,31 +5,31 @@ import {
     Stack,
     Typography,
 } from "@mui/material";
-import styles from "@/layouts/Footer/Footer.module.scss";
+import styles from "./Footer.module.scss";
 import { Link } from "react-router-dom";
 import logo from "@/assets/images/logo.png";
 import PageUpperIcon from "@/assets/images/page-upper.svg";
 
 const linkData = [
-    { label: 'Каталог', path: '/v3' },
-    { label: 'Заказать арматуру', path: '/v3/armature' },
-    { label: 'Заказ под производство', path: '/v3' },
-    { label: 'Калькуляторы', path: '/v3' },
+    { label: 'Каталог', path: '' },
+    { label: 'Заказать арматуру', path: 'armature' },
+    { label: 'Заказ под производство', path: '' },
+    { label: 'Калькуляторы', path: '' },
 ];
 
 const infoData = [
-    { label: 'Общая информация', path: '/v3' },
-    { label: 'Политика персональных данных ТМК', path: '/v3' },
-    { label: 'Документы и регламенты', path: '/v3' },
-    { label: 'FAQ (часто задаваемые вопросы)', path: '/v3' },
-    { label: 'Карьера в ТМК', path: '/v3' },
+    { label: 'Общая информация', path: '' },
+    { label: 'Политика персональных данных ТМК', path: '' },
+    { label: 'Документы и регламенты', path: '' },
+    { label: 'FAQ (часто задаваемые вопросы)', path: '' },
+    { label: 'Карьера в ТМК', path: '' },
 ];
 
 const contactData = [
-    { label: '+7 800 234-5005', path: '/v3' },
-    { label: 'sales@tmk-group.com', path: '/v3' },
-    { label: 'Горячая линия', path: '/v3' },
-    { label: 'Техническая поддержка', path: '/v3' },
+    { label: '+7 800 234-5005', path: 'tel:+78002345005' },
+    { label: 'sales@tmk-group.com', path: 'mailto:sales@tmk-group.com' },
+    { label: 'Горячая линия', path: '' },
+    { label: 'Техническая поддержка', path: '' },
 ];
 
 /**
@@ -72,19 +72,21 @@ export const Footer = () => {
                     </Stack>
                     <Stack direction="row" spacing={18}>
                         <Stack direction="column" spacing={2}>
-                            {linkData.map((tab, index) => (
-                                <Link to={tab.path} key={index}>
-                                    <Button variant="text">
-                                        <Typography
-                                            variant="h5"
-                                            textTransform="uppercase"
-                                            className={styles.typography}
-                                        >
-                                            {tab.label}
-                                        </Typography>
-                                    </Button>
-                                </Link>
-                            ))}
+                            {
+                                linkData.map((tab, index) => (
+                                    <Link to={tab.path} key={index}>
+                                        <Button variant="text">
+                                            <Typography
+                                                variant="h5"
+                                                textTransform="uppercase"
+                                                className={styles.typography}
+                                            >
+                                                {tab.label}
+                                            </Typography>
+                                        </Button>
+                                    </Link>
+                                ))
+                            }
                         </Stack>
                         <Stack direction="column" spacing={2}>
                             <Typography
@@ -97,18 +99,20 @@ export const Footer = () => {
                             >
                                 Справочная информация
                             </Typography>
-                            {infoData.map((tab, index) => (
-                                <Link to={tab.path} key={index}>
-                                    <Button variant="text" color="info">
-                                        <Typography
-                                            variant="h5"
-                                            textTransform="none"
-                                        >
-                                            {tab.label}
-                                        </Typography>
-                                    </Button>
-                                </Link>
-                            ))}
+                            {
+                                infoData.map((tab, index) => (
+                                    <Link to={tab.path} key={index}>
+                                        <Button variant="text" color="info">
+                                            <Typography
+                                                variant="h5"
+                                                textTransform="none"
+                                            >
+                                                {tab.label}
+                                            </Typography>
+                                        </Button>
+                                    </Link>
+                                ))
+                            }
                         </Stack>
                         <Stack direction="column" spacing={2}>
                             <Typography
@@ -121,19 +125,21 @@ export const Footer = () => {
                             >
                                 Контакты
                             </Typography>
-                            {contactData.map((tab, index) => (
-                                <Link to={tab.path} key={index}>
-                                    <Button variant="text">
-                                        <Typography
-                                            variant="h5"
-                                            textTransform="uppercase"
-                                            className={styles.typography}
-                                        >
-                                            {tab.label}
-                                        </Typography>
-                                    </Button>
-                                </Link>
-                            ))}
+                            {
+                                contactData.map((tab, index) => (
+                                    <Link to={tab.path} key={index}>
+                                        <Button variant="text">
+                                            <Typography
+                                                variant="h5"
+                                                textTransform="uppercase"
+                                                className={styles.typography}
+                                            >
+                                                {tab.label}
+                                            </Typography>
+                                        </Button>
+                                    </Link>
+                                ))
+                            }
                         </Stack>
                     </Stack>
                     <Stack direction="row">

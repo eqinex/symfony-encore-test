@@ -1,1 +1,1 @@
-export { LazyArmaturePage as ArmaturePage } from './ArmaturePage.lazy'
+export { LazyArmaturePage as ArmaturePage } from "./ui/ArmaturePage.lazy";

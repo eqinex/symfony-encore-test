@@ -1,6 +1,6 @@
 import { Box, Container, Typography } from "@mui/material";
 
-import styles from './ArmaturePage.module.scss';
+import styles from "./ArmaturePage.module.scss";
 
 /**
  * Компонент ArmaturePage отображает содержимое страницы Armature.
